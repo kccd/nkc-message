@@ -36,7 +36,7 @@ async function getRoomName(type, ...params) {
 /*
 * 获取真实 IP
 * */
-async function getRealIp(props) {
+function getRealIp(props) {
   let {
     proxy,
     maxIpsCount,
