@@ -10,10 +10,16 @@ const func = async (socket, next) => {
   if(!authInfo) {
     return await disconnectSocket(socket);
   }
-  const {uid, onlineStatus, friendsUid} = authInfo;
+  const {
+    uid,
+    onlineStatus,
+    friendsUid,
+    newMessageCount
+  } = authInfo;
   state.uid = uid;
   state.friendsUid = friendsUid;
   state.onlineStatus = onlineStatus;
+  state.newMessageCount = newMessageCount;
   await next();
 };
 module.exports = func;

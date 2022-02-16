@@ -79,12 +79,14 @@ async function getAuthInfo(cookie, operationId, os) {
   const {
     uid,
     onlineStatus = '',
-    friendsUid = []
+    friendsUid = [],
+    newMessageCount = 0,
   } = data;
   return {
     uid,
     onlineStatus,
-    friendsUid
+    friendsUid,
+    newMessageCount
   };
 }
 

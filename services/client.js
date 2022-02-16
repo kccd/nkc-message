@@ -23,7 +23,7 @@ async function getRoomClientsId(namespace, roomName) {
 * @param {String} type 类型
 * @return {String}
 * */
-async function getRoomName(type, ...params) {
+function getRoomName(type, ...params) {
   let value = map[type];
   let valueType = typeof value;
   if(valueType === "function") {
