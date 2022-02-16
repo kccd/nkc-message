@@ -1,0 +1,30 @@
+{
+  "name": "nkc-message",
+  "version": "1.0.0",
+  "description": "nkc websocket server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kccd/nkc-message.git"
+  },
+  "keywords": [
+    "websocket",
+    "nkc"
+  ],
+  "author": "pengxiguaa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kccd/nkc-message/issues"
+  },
+  "homepage": "https://github.com/kccd/nkc-message#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "socket.io": "^4.4.0",
+    "socket.io-redis": "6.0.1",
+    "moment": "^2.20.1",
+    "socket.io-client": "^4.4.0"
+  }
+}
