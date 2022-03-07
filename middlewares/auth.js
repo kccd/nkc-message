@@ -7,6 +7,7 @@ const func = async (socket, next) => {
   const {os} = state;
   // 从 nkc 服务获取认证信息
   const authInfo = await getAuthInfo(cookie, operationId, os);
+  console.log(authInfo,'authInfo')
   if(!authInfo) {
     return await disconnectSocket(socket);
   }
@@ -14,12 +15,14 @@ const func = async (socket, next) => {
     uid,
     onlineStatus,
     friendsUid,
-    newMessageCount
+    newMessageCount,
+    redEnvelopeStatus
   } = authInfo;
   state.uid = uid;
   state.friendsUid = friendsUid;
   state.onlineStatus = onlineStatus;
   state.newMessageCount = newMessageCount;
+  state.redEnvelopeStatus = redEnvelopeStatus
   await next();
 };
 module.exports = func;

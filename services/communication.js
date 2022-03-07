@@ -31,6 +31,16 @@ async function sendMessageToNKCService(type, data = {}) {
     data
   });
 }
+/*
+* 获取用户是否获得红包
+*/
+// async function getLottery(uid){
+//     const {status, close, redEnvelopeStatus} = await sendMessageToNKCService(eventName.getLotterySettings, {
+//       uid,
+//     })
+//     return {status, close, redEnvelopeStatus};
+
+// }
 
 /*
 * 设置用户的在线状态
@@ -81,12 +91,14 @@ async function getAuthInfo(cookie, operationId, os) {
     onlineStatus = '',
     friendsUid = [],
     newMessageCount = 0,
+    redEnvelopeStatus
   } = data;
   return {
     uid,
     onlineStatus,
     friendsUid,
-    newMessageCount
+    newMessageCount,
+    redEnvelopeStatus
   };
 }
 
@@ -124,5 +136,5 @@ module.exports = {
   getUsersFriendsUid,
   getAuthInfo,
   checkPostPermission,
-  checkForumPermission
+  checkForumPermission,
 };
