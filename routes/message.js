@@ -7,7 +7,7 @@ module.exports = async (socket, io) => {
   // 加入房间 
   socket.join(userRoom(uid));
 
-  socket.emit('updateNewMessageCount', {newMessageCount, redEnvelopeStatus});
+  socket.emit('newMessageCountAndRedEnvelopeStatus', {newMessageCount, redEnvelopeStatus});
 
   // 发送上线通知
   await Promise.all(friendsUid.map(friendUid => {

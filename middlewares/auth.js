@@ -7,7 +7,6 @@ const func = async (socket, next) => {
   const {os} = state;
   // 从 nkc 服务获取认证信息
   const authInfo = await getAuthInfo(cookie, operationId, os);
-  console.log(authInfo,'authInfo')
   if(!authInfo) {
     return await disconnectSocket(socket);
   }
