@@ -2,13 +2,13 @@ const {getRoomName, getRoomClientsId} = require("../services/client");
 const {getUsersFriendsUid, setUserOnlineStatus} = require("../services/communication");
 const log = require('../services/log');
 module.exports = async (socket, io) => {
-  const {uid, onlineStatus, friendsUid, newMessageCount} = socket.state;
+  const {uid, onlineStatus, friendsUid, newMessageCount = 0 , redEnvelopeStatus} = socket.state;
   let userRoom = uid => getRoomName("user", uid);
-  // 加入房间
+  // 加入房间 
   socket.join(userRoom(uid));
-  if(newMessageCount > 0) {
-    socket.emit('updateNewMessageCount', newMessageCount);
-  }
+
+  socket.emit('newMessageCountAndRedEnvelopeStatus', {newMessageCount, redEnvelopeStatus});
+
   // 发送上线通知
   await Promise.all(friendsUid.map(friendUid => {
     io.in(userRoom(friendUid)).emit('updateUserOnlineStatus', {

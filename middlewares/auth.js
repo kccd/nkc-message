@@ -14,12 +14,14 @@ const func = async (socket, next) => {
     uid,
     onlineStatus,
     friendsUid,
-    newMessageCount
+    newMessageCount,
+    redEnvelopeStatus
   } = authInfo;
   state.uid = uid;
   state.friendsUid = friendsUid;
   state.onlineStatus = onlineStatus;
   state.newMessageCount = newMessageCount;
+  state.redEnvelopeStatus = redEnvelopeStatus
   await next();
 };
 module.exports = func;
